@@ -339,6 +339,7 @@ bool Copter::set_target_posvelaccel_NED(const Vector3f& target_pos, const Vector
     if (!flightmode->in_guided_mode()) {
         return false;
     }
+    
 // ten_hz_logging_loop
 // should be run at 10hz
 static void ten_hz_logging_loop()
