@@ -347,26 +347,6 @@ bool Copter::set_target_posvelaccel_NED(const Vector3f& target_pos, const Vector
 
     return mode_guided.set_destination_posvelaccel(pos_neu_cm, vel_neu_cms, accel_neu_cms, use_yaw, yaw_deg * 100.0, use_yaw_rate, yaw_rate_degs * 100.0, yaw_relative);
 }
-// ten_hz_logging_loop
-// should be run at 10hz
-static void ten_hz_logging_loop()
-{
-    if (g.log_bitmask & MASK_LOG_ATTITUDE_MED) {
-        Log_Write_Attitude();
-    }
-    if (g.log_bitmask & MASK_LOG_RCIN) {
-        DataFlash.Log_Write_RCIN();
-    }
-    if (g.log_bitmask & MASK_LOG_RCOUT) {
-        DataFlash.Log_Write_RCOUT();
-    }
-    if ((g.log_bitmask & MASK_LOG_NTUN) && mode_requires_GPS(control_mode)) {
-        Log_Write_Nav_Tuning();
-    }
-
-        // your new function call here
-        my_new_function();
-}
 
 
 bool Copter::set_target_velocity_NED(const Vector3f& vel_ned)
